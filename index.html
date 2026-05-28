@@ -1,697 +1,646 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>跨境电商日报看台 | 2026-05-27</title>
-<style>
-  :root {
-    --bg: #0f1117;
-    --card-bg: #1a1d27;
-    --card-hover: #22253a;
-    --border: #2a2d3a;
-    --text: #e1e4ea;
-    --text-secondary: #8b8fa3;
-    --accent-amazon: #ff9900;
-    --accent-logistics: #00b4d8;
-    --accent-compliance: #e63946;
-    --accent-industry: #2ec4b6;
-    --accent-tech: #7c3aed;
-    --tag-bg: rgba(255,153,0,0.12);
-    --tag-text: #ff9900;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>跨境电商日报看台 · 2026-05-28</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-
-  /* Header */
-  .header {
-    background: linear-gradient(135deg, #1a1d27 0%, #252840 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(20px);
-  }
-
-  .header-inner {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .header-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .header-logo {
-    width: 40px;
-    height: 40px;
-    background: var(--accent-amazon);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-  }
-
-  .header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-  }
-
-  .header h1 span { color: var(--accent-amazon); }
-
-  .header-date {
-    font-size: 14px;
-    color: var(--text-secondary);
-  }
-
-  .header-stats {
-    display: flex;
-    gap: 24px;
-    font-size: 13px;
-    color: var(--text-secondary);
-  }
-
-  .header-stats strong {
-    color: var(--accent-amazon);
-    font-size: 18px;
-    display: block;
-  }
-
-  /* Container */
-  .container {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 28px 24px;
-  }
-
-  /* Category Section */
-  .section {
-    margin-bottom: 36px;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--border);
-  }
-
-  .section-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-  }
-
-  .section-title {
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  .section-count {
-    font-size: 12px;
-    color: var(--text-secondary);
-    background: var(--card-bg);
-    padding: 2px 10px;
-    border-radius: 10px;
-  }
-
-  /* Grid */
-  .news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 16px;
-  }
-
-  /* News Card */
-  .news-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .news-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    border-radius: 12px 0 0 12px;
-  }
-
-  .news-card:hover {
-    background: var(--card-hover);
-    border-color: #3a3d50;
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  }
-
-  .card-platform::before { background: var(--accent-amazon); }
-  .card-logistics::before { background: var(--accent-logistics); }
-  .card-compliance::before { background: var(--accent-compliance); }
-  .card-industry::before { background: var(--accent-industry); }
-  .card-tech::before { background: var(--accent-tech); }
-
-  .card-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    font-size: 12px;
-    color: var(--text-secondary);
-  }
-
-  .card-tag {
-    padding: 2px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-  }
-
-  .tag-platform { background: rgba(255,153,0,0.15); color: #ff9900; }
-  .tag-logistics { background: rgba(0,180,216,0.15); color: #00b4d8; }
-  .tag-compliance { background: rgba(230,57,70,0.15); color: #e63946; }
-  .tag-industry { background: rgba(46,196,182,0.15); color: #2ec4b6; }
-  .tag-tech { background: rgba(124,58,237,0.15); color: #a78bfa; }
-  .tag-hot { background: rgba(255,59,48,0.15); color: #ff3b30; animation: pulse 2s infinite; }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-  }
-
-  .card-title {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-summary {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-impact {
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 8px;
-    font-size: 12px;
-    color: var(--text-secondary);
-  }
-
-  .card-impact .impact-label {
-    font-weight: 600;
-    color: #ff9900;
-    margin-right: 4px;
-  }
-
-  .card-source {
-    color: var(--accent-logistics);
-  }
-
-  /* Top Story Hero */
-  .hero {
-    background: linear-gradient(135deg, #1a1d27 0%, #252840 50%, #1f2333 100%);
-    border: 1px solid #3a3d50;
-    border-radius: 16px;
-    padding: 28px;
-    margin-bottom: 32px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255,153,0,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    padding: 4px 14px;
-    background: rgba(255,59,48,0.15);
-    color: #ff3b30;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 14px;
-    animation: pulse 2s infinite;
-  }
-
-  .hero h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    line-height: 1.4;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 800px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Key Metrics Bar */
-  .metrics-bar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-    margin-bottom: 32px;
-  }
-
-  .metric-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    text-align: center;
-  }
-
-  .metric-value {
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--accent-amazon);
-  }
-
-  .metric-value.red { color: #e63946; }
-  .metric-value.green { color: #2ec4b6; }
-  .metric-value.blue { color: #00b4d8; }
-
-  .metric-label {
-    font-size: 12px;
-    color: var(--text-secondary);
-    margin-top: 4px;
-  }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 32px 24px;
-    color: var(--text-secondary);
-    font-size: 12px;
-    border-top: 1px solid var(--border);
-    margin-top: 40px;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .news-grid {
-      grid-template-columns: 1fr;
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --card-hover: #21253a;
+      --border: #2a2d3e;
+      --text: #e0e4f0;
+      --muted: #7a7f9a;
+      --orange: #ff9900;
+      --blue: #00b4d8;
+      --red: #e63946;
+      --teal: #2ec4b6;
+      --purple: #9b5de5;
     }
-    .header-inner {
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #12151f 0%, #1a1d2e 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 20px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -40px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 200px;
+      background: radial-gradient(ellipse, rgba(255,153,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-logo {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      opacity: 0.85;
+    }
+    .header h1 {
+      font-size: clamp(22px, 5vw, 34px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .header-meta {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .header-meta span { display: flex; align-items: center; gap: 5px; }
+    .badge {
+      background: rgba(255,153,0,0.12);
+      color: var(--orange);
+      border: 1px solid rgba(255,153,0,0.3);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ── KPI Bar ── */
+    .kpi-bar {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      gap: clamp(16px, 4vw, 48px);
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+    .kpi-item { display: flex; align-items: center; gap: 7px; }
+    .kpi-label { color: var(--muted); }
+    .kpi-value { font-weight: 700; font-size: 14px; }
+    .kpi-up { color: #ff5555; }
+    .kpi-down { color: #50fa7b; }
+    .kpi-neutral { color: var(--orange); }
+
+    /* ── Main ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px 60px; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1e1a2e 0%, #1a1d27 100%);
+      border: 1px solid rgba(255,153,0,0.3);
+      border-left: 4px solid var(--orange);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; width: 40%;
+      background: radial-gradient(ellipse at right center, rgba(255,153,0,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,153,0,0.15);
+      color: var(--orange);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      font-size: clamp(16px, 3vw, 21px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .hero-desc { color: #b0b8d0; font-size: 14px; line-height: 1.7; margin-bottom: 14px; }
+    .hero-impact {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(230,57,70,0.1);
+      border: 1px solid rgba(230,57,70,0.3);
+      color: #ff7a84;
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .hero-meta { margin-top: 14px; font-size: 12px; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ── Section ── */
+    .section { margin-bottom: 36px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .section-title { font-size: 17px; font-weight: 700; }
+    .section-count { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+    .icon-orange { background: rgba(255,153,0,0.12); }
+    .icon-blue   { background: rgba(0,180,216,0.12); }
+    .icon-red    { background: rgba(230,57,70,0.12); }
+    .icon-teal   { background: rgba(46,196,182,0.12); }
+
+    .title-orange { color: var(--orange); }
+    .title-blue   { color: var(--blue); }
+    .title-red    { color: var(--red); }
+    .title-teal   { color: var(--teal); }
+
+    /* ── Card Grid ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .news-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      gap: 8px;
     }
-    .metrics-bar {
-      grid-template-columns: repeat(2, 1fr);
+    .news-card:hover {
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     }
-  }
 
-  /* Scrollbar */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-</style>
+    .card-orange { border-left: 3px solid var(--orange); }
+    .card-blue   { border-left: 3px solid var(--blue); }
+    .card-red    { border-left: 3px solid var(--red); }
+    .card-teal   { border-left: 3px solid var(--teal); }
+
+    .card-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 4px;
+      padding: 1px 8px;
+      letter-spacing: 0.3px;
+    }
+    .tag-orange { background: rgba(255,153,0,0.12); color: var(--orange); }
+    .tag-blue   { background: rgba(0,180,216,0.12);  color: var(--blue); }
+    .tag-red    { background: rgba(230,57,70,0.12);  color: var(--red); }
+    .tag-teal   { background: rgba(46,196,182,0.12); color: var(--teal); }
+    .tag-purple { background: rgba(155,93,229,0.12); color: var(--purple); }
+
+    .card-date { font-size: 11px; color: var(--muted); margin-left: auto; }
+    .card-source { font-size: 11px; color: var(--muted); }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+      text-decoration: none;
+      display: block;
+    }
+    .card-title:hover { text-decoration: underline; }
+
+    .card-summary { font-size: 13px; color: #9ba3bf; line-height: 1.6; flex: 1; }
+
+    .card-impact {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 12px;
+      color: #c0c8e0;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+    .impact-label { font-weight: 700; color: var(--orange); flex-shrink: 0; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 18px 16px; }
+      .kpi-bar { gap: 14px; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header -->
+<!-- ── HEADER ── -->
 <header class="header">
-  <div class="header-inner">
-    <div class="header-brand">
-      <div class="header-logo">📦</div>
-      <div>
-        <h1>跨境电商<span>日报看台</span></h1>
-        <div class="header-date">2026年5月27日 星期三 · 亚马逊专场</div>
-      </div>
-    </div>
-    <div class="header-stats">
-      <div><strong class="metric-value">20</strong>条精选</div>
-      <div><strong class="metric-value red">4</strong>条预警</div>
-      <div><strong class="metric-value blue">4</strong>大板块</div>
-    </div>
+  <div class="header-logo">Cross-Border E-Commerce Daily</div>
+  <h1>跨境电商日报看台</h1>
+  <div class="header-meta">
+    <span>📅 2026年05月28日 · 周四</span>
+    <span class="badge">今日速览 18 条</span>
+    <span>🕙 更新于 10:00 (北京时间)</span>
   </div>
 </header>
 
-<div class="container">
-
-  <!-- Metrics Bar -->
-  <div class="metrics-bar">
-    <div class="metric-card">
-      <div class="metric-value red">+8%</div>
-      <div class="metric-label">亚马逊Q2仓储费涨幅</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-value" style="color:#ff3b30;">74起</div>
-      <div class="metric-label">美国法院单周TRO案件数</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-value green">+125%</div>
-      <div class="metric-label">TikTok Shop东南亚跨境GMV增速</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-value blue">300万</div>
-      <div class="metric-label">深圳AI电商最高补贴(元)</div>
-    </div>
+<!-- ── KPI BAR ── -->
+<div class="kpi-bar">
+  <div class="kpi-item">
+    <span class="kpi-label">欧线6月FAK运价</span>
+    <span class="kpi-value kpi-up">↑ 涨价预警</span>
   </div>
-
-  <!-- Top Story -->
-  <div class="hero">
-    <div class="hero-badge">🔥 头条关注</div>
-    <h2>美国TRO案件单周74起创Q2新高：3200余家卖家中招，合规成为生死线</h2>
-    <p>2026年5月18日至24日，美国联邦法院单周新增74起跨境电商TRO（临时限制令）案件，创Q2历史新高，涉及3200余家卖家。亚马逊、TikTok Shop、Shopee等头部平台同步密集调整知识产权政策，合规管控全面升级。与此同时，亚马逊FBA仓储费Q2上调8%、广告竞价引入动态底价，双重成本压力叠加合规风险，6月大促季前卖家压力空前。<br><br>
-    <strong style="color:#ff9900;">卖家影响：</strong>TRO冻结资金+下架 → IP合规审查前置 → 6月大促备货节奏需同步调整 → 建议立即检查在售SKU的专利/商标状态。</p>
+  <div class="kpi-item">
+    <span class="kpi-label">MSC 40HQ箱</span>
+    <span class="kpi-value kpi-up">$4,700/箱</span>
   </div>
-
-  <!-- Section 1: 平台动态 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(255,153,0,0.15);">🛒</div>
-      <h2 class="section-title" style="color:#ff9900;">平台动态</h2>
-      <span class="section-count">5条</span>
-    </div>
-    <div class="news-grid">
-
-      <a href="https://ask.cocoloop.cn/news/amazon-2026-q2-policy-changes" target="_blank" class="news-card card-platform">
-        <div class="card-meta">
-          <span class="card-tag tag-platform">亚马逊</span>
-          <span>5月15日</span>
-          <span class="card-source">CocoLoop</span>
-        </div>
-        <div class="card-title">2026 Q2亚马逊政策变化盘点：FBA仓储费上调8%、广告引入动态底价</div>
-        <div class="card-summary">Q2五大核心调整：FBA仓储费上调8%、广告竞价引入动态底价、品牌注册门槛提高、气候友好认证补贴收紧、退货处理费扩至全品类。</div>
-        <div class="card-impact"><span class="impact-label">💰 成本冲击</span>旺季前FBA+广告双重成本上升，需重新核算SKU盈利模型</div>
-      </a>
-
-      <a href="https://www.ikjzd.com/articles/1810625995697312656" target="_blank" class="news-card card-platform">
-        <div class="card-meta">
-          <span class="card-tag tag-platform">亚马逊</span>
-          <span>5月27日</span>
-          <span class="card-source">跨境知道</span>
-        </div>
-        <div class="card-title">平台政策连环收紧：FBA强制清理超龄库存、售后响应时长考核升级</div>
-        <div class="card-summary">2026年5月亚马逊FBA强制清理超龄库存、燃油附加费持续加码、售后响应时长考核日益严苛，跨境电商进入"服务驱动"底层规则重构。</div>
-        <div class="card-impact"><span class="impact-label">📋 运营要点</span>超龄库存面临强制处置费，需定期审查库龄报告，及时清仓或移库</div>
-      </a>
-
-      <a href="https://www.sohu.com/a/1021429453_122604813" target="_blank" class="news-card card-platform">
-        <div class="card-meta">
-          <span class="card-tag tag-hot">TikTok</span>
-          <span>5月12日</span>
-          <span class="card-source">搜狐</span>
-        </div>
-        <div class="card-title">TikTok Shop"亿元直通车"：成熟大卖最高享120天佣金减免+$15000货补</div>
-        <div class="card-summary">TikTok Shop东南亚推出"亿元直通车"计划，面向成熟大卖提供最高120天佣金减免、每月最高15000美元货补，意图锁定高价值商家。</div>
-        <div class="card-impact"><span class="impact-label">🚀 新平台机会</span>TikTok Shop高额补贴窗口期有限，有东南亚备货能力的卖家值得重点布局</div>
-      </a>
-
-      <a href="https://www.chwang.com/daily/20260519" target="_blank" class="news-card card-platform">
-        <div class="card-meta">
-          <span class="card-tag tag-platform">TikTok</span>
-          <span>5月19日</span>
-          <span class="card-source">出海网</span>
-        </div>
-        <div class="card-title">TikTok Shop官宣6月全球年中大促：美区Deals For You Days 6月中旬启动</div>
-        <div class="card-summary">TikTok Shop 2026年全球多国年中大促定档6月，美区年中促6月中旬至7月上旬，英国/欧盟夏促6月下旬，日本周年庆6月中旬。</div>
-        <div class="card-impact"><span class="impact-label">📅 大促备战</span>6月大促窗口期已定，备货、备款、备内容，三周内完成准备</div>
-      </a>
-
-      <a href="https://www.sohu.com/a/1020272610_121007204" target="_blank" class="news-card card-platform">
-        <div class="card-meta">
-          <span class="card-tag tag-platform">亚马逊</span>
-          <span>5月1日</span>
-          <span class="card-source">搜狐·至美通</span>
-        </div>
-        <div class="card-title">亚马逊5月划线价计算逻辑调整：促销价格门槛要求更严格</div>
-        <div class="card-summary">亚马逊自5月起调整划线价计算逻辑，对参考价格的历史定价周期要求更严，虚假划线价将面临广告审查和Listing降权风险。</div>
-        <div class="card-impact"><span class="impact-label">⚠️ 促销预警</span>6月大促前需检查Listing划线价是否符合新规，避免大促期间广告被暂停</div>
-      </a>
-
-    </div>
+  <div class="kpi-item">
+    <span class="kpi-label">FBA头程海运美线</span>
+    <span class="kpi-value kpi-neutral">4.5-12元/kg</span>
   </div>
-
-  <!-- Section 2: 货代物流 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(0,180,216,0.15);">🚢</div>
-      <h2 class="section-title" style="color:#00b4d8;">货代物流</h2>
-      <span class="section-count">5条</span>
-    </div>
-    <div class="news-grid">
-
-      <a href="https://k.sina.cn/article_7857201856_1d45362c00190535eu.html" target="_blank" class="news-card card-logistics">
-        <div class="card-meta">
-          <span class="card-tag tag-logistics">海运</span>
-          <span>5月23日</span>
-          <span class="card-source">新浪·义乌</span>
-        </div>
-        <div class="card-title">宁波-洛杉矶40HQ单周涨价300美元：从$1800跳至$2100</div>
-        <div class="card-summary">义乌外贸商反映，宁波港至洛杉矶40HQ整柜运费本月单周内从1800美元涨至2100美元，差价300美元直接压缩单柜利润，运费波动加剧。</div>
-        <div class="card-impact"><span class="impact-label">📈 成本预警</span>跨太平洋航线运费短期仍有上行风险，6月大促前尽快锁定运费</div>
-      </a>
-
-      <a href="https://wiki.1688.com/zh/overseas-warehouse/WKfbe4ymaqwqgw" target="_blank" class="news-card card-logistics">
-        <div class="card-meta">
-          <span class="card-tag tag-logistics">货代</span>
-          <span>5月23日</span>
-          <span class="card-source">1688百科</span>
-        </div>
-        <div class="card-title">2026年5月货代行业最新趋势：RCEP优惠通道开放，广交会物流支持落地</div>
-        <div class="card-summary">2026年4-5月货代行业新动态：RCEP优惠通道全面开放、广交会物流支持方案落地，中小外贸企业可借助RCEP降低关税成本。</div>
-        <div class="card-impact"><span class="impact-label">✅ 降本机会</span>RCEP通道适用东南亚、日韩货物，符合原产地规则可降低5-20%关税</div>
-      </a>
-
-      <a href="https://suaidglobal.com/zh-cn/insights/international-shipping-costs-2026/" target="_blank" class="news-card card-logistics">
-        <div class="card-meta">
-          <span class="card-tag tag-logistics">费率指南</span>
-          <span>4月5日</span>
-          <span class="card-source">Suaid Global</span>
-        </div>
-        <div class="card-title">2026年国际物流费用完整指南：海运/空运/陆运真实报价全解析</div>
-        <div class="card-summary">2026年国际物流实际费率系统梳理，覆盖主流航线的海运整柜/拼箱、空运、国际快递真实报价，帮助卖家精准预算物流成本。</div>
-        <div class="card-impact"><span class="impact-label">📊 参考数据</span>建议参照此指南建立SKU运费成本模型，避免运费变化侵蚀利润</div>
-      </a>
-
-      <a href="https://zhuanlan.zhihu.com/p/2029528065252815166" target="_blank" class="news-card card-logistics">
-        <div class="card-meta">
-          <span class="card-tag tag-compliance">新《海商法》</span>
-          <span>5月1日生效</span>
-          <span class="card-source">知乎</span>
-        </div>
-        <div class="card-title">新《海商法》"谁订舱谁兜底"条款生效：目的港弃货责任全面转移给发货人</div>
-        <div class="card-summary">5月1日起新《海商法》正式实施，目的港无人提货/弃货时，滞港费、滞箱费、退运费、销毁费全部由托运人（发货人）承担，风险大幅上升。</div>
-        <div class="card-impact"><span class="impact-label">⚠️ 重大风险</span>买家失联或拒收时，发货人承担全部费用可能远超货值，须购买货运险并签好合同</div>
-      </a>
-
-      <a href="http://www.bsyt56.com/dynamic/1253.html" target="_blank" class="news-card card-logistics">
-        <div class="card-meta">
-          <span class="card-tag tag-logistics">FBA头程</span>
-          <span>4月13日</span>
-          <span class="card-source">博思优通</span>
-        </div>
-        <div class="card-title">2026亚马逊FBA分仓vs合仓终极指南：轻货分5仓免配置费，重货合仓省成本</div>
-        <div class="card-summary">2026年新规下，轻货分仓可完全免收入库配置费但头程费翻倍；重货合仓需付配置服务费但物流管理更简便。不同货型策略不同。</div>
-        <div class="card-impact"><span class="impact-label">📦 FBA策略</span>轻小件优先分仓免配置费，重货/大件建议合仓减少头程成本</div>
-      </a>
-
-    </div>
+  <div class="kpi-item">
+    <span class="kpi-label">违规税务罚单均值</span>
+    <span class="kpi-value kpi-up">+42% YoY</span>
   </div>
-
-  <!-- Section 3: 合规政策 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(230,57,70,0.15);">⚖️</div>
-      <h2 class="section-title" style="color:#e63946;">合规政策</h2>
-      <span class="section-count">5条</span>
-    </div>
-    <div class="news-grid">
-
-      <a href="https://www.sohu.com/a/1027247347_121824247" target="_blank" class="news-card card-compliance">
-        <div class="card-meta">
-          <span class="card-tag tag-compliance">知识产权</span>
-          <span>5月24日</span>
-          <span class="card-source">搜狐·睿观AI</span>
-        </div>
-        <div class="card-title">5月18-24日行业周报：74起TRO案件创Q2新高，3200余家卖家中招</div>
-        <div class="card-summary">美国联邦法院单周新增74起TRO案件创Q2新高，涉及3200余家卖家。亚马逊、TikTok Shop、Shopee相继调整知识产权政策，合规管控全面升级。</div>
-        <div class="card-impact"><span class="impact-label">🚨 紧急预警</span>TRO冻结账户资金，受影响卖家平均冻结周期21天，立即排查在售SKU侵权风险</div>
-      </a>
-
-      <a href="https://baijiahao.baidu.com/s?id=1866230229172457895" target="_blank" class="news-card card-compliance">
-        <div class="card-meta">
-          <span class="card-tag tag-compliance">五大平台</span>
-          <span>5月25日</span>
-          <span class="card-source">百家号</span>
-        </div>
-        <div class="card-title">2026年5月知识产权合规新政汇总：亚马逊/Temu/速卖通/TikTok/eBay五平台同步收紧</div>
-        <div class="card-summary">五大主流跨境平台5月相继发布最新知识产权政策调整，美国TRO案件呈爆发式增长，给中国跨境卖家带来严峻挑战。</div>
-        <div class="card-impact"><span class="impact-label">📌 全平台必看</span>多平台卖家需逐一核对各平台最新IP政策，一处违规可能触发全平台审查</div>
-      </a>
-
-      <a href="https://mjzj.com/article/fn7bvkpq2gw0" target="_blank" class="news-card card-compliance">
-        <div class="card-meta">
-          <span class="card-tag tag-compliance">主体合规</span>
-          <span>5月</span>
-          <span class="card-source">卖家之家</span>
-        </div>
-        <div class="card-title">亚马逊全面收紧中国卖家主体资质管理："强监管"时代正式到来</div>
-        <div class="card-summary">亚马逊配合中国涉税信息报送规定，强化打击空壳公司与挂靠违规，中国卖家资质管理强监管时代正式到来，KYC审核更严格。</div>
-        <div class="card-impact"><span class="impact-label">⚠️ 合规整改</span>空壳公司、一人多店铺面临重点审查，建议尽快规范主体资质与账户合规性</div>
-      </a>
-
-      <a href="https://zhuanlan.zhihu.com/p/2036468655031047390" target="_blank" class="news-card card-compliance">
-        <div class="card-meta">
-          <span class="card-tag tag-compliance">税务</span>
-          <span>5月9日</span>
-          <span class="card-source">知乎</span>
-        </div>
-        <div class="card-title">2026跨境电商税务新政：全面查账征收+数据穿透监管，财税合规迫在眉睫</div>
-        <div class="card-summary">全面查账征收与数据穿透监管双管齐下，出口退运免税、无票免税扩围政策同步落地。税务政策每次调整都直接牵动卖家利润。</div>
-        <div class="card-impact"><span class="impact-label">💼 财税合规</span>查账征收全面落地，跨境卖家须规范账务、按时申报，避免追缴税款和罚款</div>
-      </a>
-
-      <a href="https://www.sohu.com/a/1021429453_122604813" target="_blank" class="news-card card-compliance">
-        <div class="card-meta">
-          <span class="card-tag tag-compliance">包装法</span>
-          <span>5月15日</span>
-          <span class="card-source">搜狐</span>
-        </div>
-        <div class="card-title">Temu德国站包装法合规升级：5月15日前须上传2025年度缴费凭证</div>
-        <div class="card-summary">Temu德国站要求卖家5月15日前完成2025年度德国包装法二元回收系统缴费凭证上传，逾期面临下架风险，涉及德国市场的所有卖家须关注。</div>
-        <div class="card-impact"><span class="impact-label">🇩🇪 德国卖家</span>德国包装法是欧洲最严格的包装回收法规，违规代价高昂，务必完成合规</div>
-      </a>
-
-    </div>
+  <div class="kpi-item">
+    <span class="kpi-label">ASCS开放状态</span>
+    <span class="kpi-value kpi-down">✅ 正式开放</span>
   </div>
-
-  <!-- Section 4: 产业链与行业趋势 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(46,196,182,0.15);">🌐</div>
-      <h2 class="section-title" style="color:#2ec4b6;">产业链 &amp; 行业趋势</h2>
-      <span class="section-count">5条</span>
-    </div>
-    <div class="news-grid">
-
-      <a href="https://zhuanlan.zhihu.com/p/2042177109699868470" target="_blank" class="news-card card-industry">
-        <div class="card-meta">
-          <span class="card-tag tag-industry">TikTok</span>
-          <span>5月24日</span>
-          <span class="card-source">知乎</span>
-        </div>
-        <div class="card-title">TikTok Shop东南亚2025年GMV同比暴增125%，大促最高增270%</div>
-        <div class="card-summary">最新数据显示，TikTok Shop东南亚跨境电商2025年GMV同比增长125%，大促GMV最高同比暴涨270%，成为东南亚最快增长的电商平台。</div>
-        <div class="card-impact"><span class="impact-label">📱 新渠道</span>TikTok Shop东南亚成为增速最快的新兴电商渠道，适合轻消费品出海布局</div>
-      </a>
-
-      <a href="https://www.52by.com/article/218215" target="_blank" class="news-card card-industry">
-        <div class="card-meta">
-          <span class="card-tag tag-tech">AI政策</span>
-          <span>5月7日</span>
-          <span class="card-source">斯坦德咨询</span>
-        </div>
-        <div class="card-title">深圳AI电商补贴落地：最高300万元，AI全链路赋能跨境电商</div>
-        <div class="card-summary">深圳市商务局将组织企业申报"2026年电子商务科技创新应用案例"，对AI电商项目给予最高300万元政策补贴，支持从选品到售后的AI全链路应用。</div>
-        <div class="card-impact"><span class="impact-label">💰 政策红利</span>深圳跨境卖家可申报AI应用补贴，降低技术投入成本，截止日期待确认</div>
-      </a>
-
-      <a href="https://www.163.com/dy/article/KLAVQK1E0511HPH6.html" target="_blank" class="news-card card-industry">
-        <div class="card-meta">
-          <span class="card-tag tag-tech">AI趋势</span>
-          <span>2月9日</span>
-          <span class="card-source">网易号</span>
-        </div>
-        <div class="card-title">【年度AI观察】2026：AI重构跨境电商全链路——选品/物流/获客/产业链</div>
-        <div class="card-summary">AI技术正在深刻重构跨境电商：智能选品、AI营销文案、自动化客服、供应链优化。中小企业借助AI工具打通全球市场已成现实。</div>
-        <div class="card-impact"><span class="impact-label">🔮 战略方向</span>AI工具正在拉平大小卖家的信息差，越早应用越早建立竞争壁垒</div>
-      </a>
-
-      <a href="https://baijiahao.baidu.com/s?id=1862340168228753084" target="_blank" class="news-card card-industry">
-        <div class="card-meta">
-          <span class="card-tag tag-industry">TikTok峰会</span>
-          <span>5月22日</span>
-          <span class="card-source">百家号</span>
-        </div>
-        <div class="card-title">2026 TikTok Shop东南亚跨境年度峰会广州举办："加速度 新高度"</div>
-        <div class="card-summary">TikTok Shop东南亚跨境电商年度峰会5月22日广州举办。峰会展示了平台对中国跨境卖家的战略级支持和东南亚市场增量空间。</div>
-        <div class="card-impact"><span class="impact-label">🌏 东南亚机会</span>TikTok Shop正成为下一个高增速平台窗口，建议关注平台扶持政策</div>
-      </a>
-
-      <a href="https://www.sohu.com/a/1024047221_121824247" target="_blank" class="news-card card-industry">
-        <div class="card-meta">
-          <span class="card-tag tag-hot">行业周报</span>
-          <span>5月24日</span>
-          <span class="card-source">搜狐·睿观AI</span>
-        </div>
-        <div class="card-title">5月第四周行业总结：合规压力加剧、AI重塑格局、6月大促倒计时</div>
-        <div class="card-summary">本周行业三大关键词：TRO案件创新高（合规压力）、多平台AI工具全面铺开（技术变革）、各大平台6月大促政策陆续公布（运营节奏）。</div>
-        <div class="card-impact"><span class="impact-label">📰 综合判断</span>6月大促前3周是黄金备战窗口：合规排查+库存备货+广告预热，三线并进</div>
-      </a>
-
-    </div>
-  </div>
-
 </div>
 
-<footer class="footer">
-  <p>跨境电商日报看台 · 自动采集于 2026年5月27日 14:48 (北京时间)</p>
-  <p style="margin-top:4px;">数据来源：亚马逊全球开店、亿恩网、雨果网、网经社、搜狐等 · 仅供内部参考，不构成投资建议</p>
-  <p style="margin-top:4px;color:#555;">Powered by WorkBuddy · 每日 10:00 自动更新</p>
+<!-- ── CONTAINER ── -->
+<div class="container">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-badge">🔥 今日头条</div>
+    <h2>亚马逊正式推出ASCS，全球物流网络向所有企业开放——跨境供应链格局巨变</h2>
+    <p class="hero-desc">
+      2026年5月，亚马逊将旗下供应链解决方案全面升级为"亚马逊供应链服务（ASCS）"，首次向非平台企业全量开放，覆盖海运、空运、公路、铁路、仓储、履约及最后一公里配送全链路。宝洁、3M等企业成为首批签约客户。此举意味着亚马逊正式转型为第三方物流服务商，与FedEx、UPS直接竞争。对跨境卖家而言，一方面可借助Prime时效提升竞争力，另一方面需关注旺季库容紧张与费用上涨风险。
+    </p>
+    <span class="hero-impact">⚡ 卖家影响：物流选择窗口扩大，但旺季备货成本或进一步承压，建议提前锁定舱位与仓储资源</span>
+    <div class="hero-meta">
+      <span>📌 来源：同花顺财经 / 百家号</span>
+      <span>🗓 2026-05-18</span>
+      <span>🏷 平台动态 · 物流革命</span>
+    </div>
+  </div>
+
+  <!-- ── SECTION 1: 平台动态 ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">🛒</div>
+      <span class="section-title title-orange">平台动态</span>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="card-grid">
+
+      <div class="news-card card-orange">
+        <div class="card-top">
+          <span class="tag tag-orange">亚马逊</span>
+          <span class="tag tag-orange">划线价</span>
+          <span class="card-date">2026-05-18</span>
+        </div>
+        <span class="card-source">来源：雨果跨境 / cifnews</span>
+        <a class="card-title" href="https://www.cifnews.com/article/185139" target="_blank" rel="noopener">
+          亚马逊划线价新规5月18日正式生效，虚高价格将被清除
+        </a>
+        <p class="card-summary">亚马逊对日本站、欧洲站及美国站参考价格规则进行重要调整，分两阶段执行：4月23日起验证List Price（建议零售价）真实性，5月18日起修改Typical/Was Price计算逻辑，要求历史价格基于真实销售记录，虚报划线价在前台直接不展示。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>依赖虚高划线价营造折扣感的卖家需立即调整定价策略，提高真实历史价格支撑，避免转化率下滑。</div>
+      </div>
+
+      <div class="news-card card-orange">
+        <div class="card-top">
+          <span class="tag tag-orange">亚马逊</span>
+          <span class="tag tag-orange">FBA费用</span>
+          <span class="card-date">2026-05-08</span>
+        </div>
+        <span class="card-source">来源：百家号</span>
+        <a class="card-title" href="https://baijiahao.baidu.com/s?id=1864520576535650267&wfr=spider&for=pc" target="_blank" rel="noopener">
+          亚马逊5月新规集中落地：欧洲站FBA单件扣费制度正式启用
+        </a>
+        <p class="card-summary">5月1日起，亚马逊欧洲站FBA移除、弃置费用改为单件实时扣费，美国站已于2月率先实施。本次调整不改变费率，但账目明细更清晰，要求卖家对库存周转、滞销品处理进行精细化管控，防止费用集中暴涨。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>慢销SKU积压欧洲站的卖家需加速出清，或转换为海外仓模式，降低移除费用突发风险。</div>
+      </div>
+
+      <div class="news-card card-orange">
+        <div class="card-top">
+          <span class="tag tag-orange">亚马逊</span>
+          <span class="tag tag-red">合规下架</span>
+          <span class="card-date">2026-05-16</span>
+        </div>
+        <span class="card-source">来源：百家号</span>
+        <a class="card-title" href="https://baijiahao.baidu.com/s?id=1865331996404798002&wfr=spider&for=pc" target="_blank" rel="noopener">
+          高压清洗机、锂电池、安全鞋三大品类未提合规材料将强制下架
+        </a>
+        <p class="card-summary">亚马逊全球合规监管持续收紧，近期面向高压清洗机、锂电池、安全鞋三大品类发布多站点合规更新通知，政策于2026年5月起陆续实施。未按时提交合规材料的商品将被平台强制下架，卖家需立即自查在售商品并补齐资质文件。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>涉及以上品类的卖家需紧急核查CE/FCC等认证有效期，防止前期运营投入付诸东流。</div>
+      </div>
+
+      <div class="news-card card-orange">
+        <div class="card-top">
+          <span class="tag tag-orange">亚马逊</span>
+          <span class="tag tag-purple">CPSC</span>
+          <span class="card-date">2026-05-27</span>
+        </div>
+        <span class="card-source">来源：亚马逊全球开店</span>
+        <a class="card-title" href="https://gs.amazon.cn/news/summary?ref=as_cn_ags_news_hp_brand_more" target="_blank" rel="noopener">
+          美国CPSC产品安全证书7月8日起须电子申报，未合规货物将被海关扣留
+        </a>
+        <p class="card-summary">2026年7月8日起，美国消费品安全委员会（CPSC）要求所有相关类目产品安全证书（GCC/CPC）必须通过CPSC电子系统申报，纸质证书不再被海关认可。未完成电子申报的货物将在入境口岸被扣留，影响直接发货到FBA仓的头程物流。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>涉及玩具、儿童用品、电子产品的卖家需在7月8日前完成CPSC系统注册和证书上传，否则面临扣货风险。</div>
+      </div>
+
+      <div class="news-card card-orange">
+        <div class="card-top">
+          <span class="tag tag-orange">跨境电商</span>
+          <span class="tag tag-purple">多平台</span>
+          <span class="card-date">2026-05-27</span>
+        </div>
+        <span class="card-source">来源：搜狐科技</span>
+        <a class="card-title" href="https://www.sohu.com/a/1028008581_121287486" target="_blank" rel="noopener">
+          2026跨境大爆发：TikTok Shop增长提速，白牌卖家面临淘汰压力加剧
+        </a>
+        <p class="card-summary">2026年跨境电商进入精耕细作阶段，TikTok Shop实现爆发式增长，依托短视频与直播带货实现流量与销量双增。SHEIN与Temu则深陷激烈竞争与知识产权诉讼泥潭。平台流量分层加速，依赖低价竞争的白牌卖家市场空间持续被压缩。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>卖家需加速品牌化、差异化布局，TikTok Shop短视频运营能力成为新的竞争护城河。</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: 货代物流 ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">🚢</div>
+      <span class="section-title title-blue">货代物流</span>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="card-grid">
+
+      <div class="news-card card-blue">
+        <div class="card-top">
+          <span class="tag tag-blue">海运</span>
+          <span class="tag tag-red">涨价预警</span>
+          <span class="card-date">2026-05-22</span>
+        </div>
+        <span class="card-source">来源：百家号</span>
+        <a class="card-title" href="https://baijiahao.baidu.com/s?id=1865856528951968524&wfr=spider&for=pc" target="_blank" rel="noopener">
+          MSC、达飞、赫伯罗特宣布6月欧线集体涨价，40HQ箱报价$4,700起
+        </a>
+        <p class="card-summary">多家大型船公司集中宣布6月1日起上调亚洲至欧洲及地中海航线FAK运价：MSC报价20英尺干箱$2,900/箱、40英尺干/高箱$4,700/箱；达飞调整亚洲至西地中海、亚得里亚海、东地中海、黑海运价；赫伯罗特调整远东至北欧、西地中海费率。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>欧线跨境卖家成本直接上升，建议5月底前提前锁仓订舱，避免6月运价高峰期被动接受涨价。</div>
+      </div>
+
+      <div class="news-card card-blue">
+        <div class="card-top">
+          <span class="tag tag-blue">ASCS</span>
+          <span class="tag tag-blue">亚马逊物流</span>
+          <span class="card-date">2026-05-18</span>
+        </div>
+        <span class="card-source">来源：百家号 / 同花顺</span>
+        <a class="card-title" href="https://baijiahao.baidu.com/s?id=1865490291163458673&wfr=spider&for=pc" target="_blank" rel="noopener">
+          亚马逊ASCS全面开放：海陆空铁四大运输方式向所有企业开放，宝洁等首批签约
+        </a>
+        <p class="card-summary">亚马逊供应链服务（ASCS）正式对外开放，覆盖海运、空运、公路、铁路全模式，提供报关清关、全链路追踪和最后一公里配送能力。宝洁、3M成为首批客户，标志亚马逊正式转型为第三方物流服务商，与FedEx、UPS直接竞争。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>卖家可利用亚马逊物流网络实现"一仓发全网"，享受Prime时效背书，但需评估与现有货代方案的成本差异。</div>
+      </div>
+
+      <div class="news-card card-blue">
+        <div class="card-top">
+          <span class="tag tag-blue">FBA头程</span>
+          <span class="tag tag-blue">美线</span>
+          <span class="card-date">2026-05-06</span>
+        </div>
+        <span class="card-source">来源：皇家递</span>
+        <a class="card-title" href="https://www.royaldeliver.com/2026-meiguo-shuangqing-baoshui-fba-tou-cheng-zui-xin-fei-yong" target="_blank" rel="noopener">
+          2026美线FBA头程最新报价：海运双清包税4.5-12元/kg，空运30-50元/kg
+        </a>
+        <p class="card-summary">2026年美线FBA头程主流报价：海运双清包税门到门4.5-12元/kg，时效25-40天；空运双清包税30-50元/kg，时效7-14天；快递专线（DHL/UPS挂靠）35-60元/kg，时效5-10天。旺季及关税政策变动时上述价格将有较大波动。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>美线关税政策不稳定背景下，建议以海运为主力补货渠道，留出2-3周时效缓冲，同时预留空运应急预算。</div>
+      </div>
+
+      <div class="news-card card-blue">
+        <div class="card-top">
+          <span class="tag tag-blue">物流选型</span>
+          <span class="tag tag-blue">跨境电商</span>
+          <span class="card-date">2026-04-11</span>
+        </div>
+        <span class="card-source">来源：百家号</span>
+        <a class="card-title" href="https://baijiahao.baidu.com/s?id=1863149099793514114&wfr=spider&for=pc" target="_blank" rel="noopener">
+          2026跨境物流全攻略：邮政小包、专线小包、FBA头程、快递四大渠道横评
+        </a>
+        <p class="card-summary">综合时效、成本、稳定性、适配场景四维对比：邮政小包适合0-2kg超低价商品；专线小包适合3-15kg中小件；FBA头程海运适合批量大货补仓；国际快递DHL/FedEx/UPS适合高价值急单。旺季（圣诞前3个月）需提前1-2周订舱。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>卖家应建立"主渠道+应急渠道"双路由策略，旺季提前备货，避免舱位紧张被动涨价。</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: 合规政策 ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon icon-red">⚖️</div>
+      <span class="section-title title-red">合规政策</span>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="card-grid">
+
+      <div class="news-card card-red">
+        <div class="card-top">
+          <span class="tag tag-red">税务稽查</span>
+          <span class="tag tag-red">深圳</span>
+          <span class="card-date">2026-05-27</span>
+        </div>
+        <span class="card-source">来源：搜狐财经</span>
+        <a class="card-title" href="https://www.sohu.com/a/1026016050_122568876" target="_blank" rel="noopener">
+          深圳倒查4年！"买单出口+私账收款"模式终结，跨境电商阳光化进入强制执行阶段
+        </a>
+        <p class="card-summary">2026年5月，广东启动阳光化试点、B2B退税扩围10地、9610无票免税首单落地三项政策同步推进。深圳跨境卖家陆续收到税务局稽查通知，要求5天内提交近4年财税资料。灰色操作空间被全面压缩，"买单出口+私账收款"模式正式走向终结。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>仍在使用非标报关的卖家面临极高法律风险，建议立即启动税务自查和财务合规整改，优先备齐4年账务凭证。</div>
+      </div>
+
+      <div class="news-card card-red">
+        <div class="card-top">
+          <span class="tag tag-red">税务合规</span>
+          <span class="tag tag-red">全球</span>
+          <span class="card-date">2026-05-09</span>
+        </div>
+        <span class="card-source">来源：知乎</span>
+        <a class="card-title" href="https://zhuanlan.zhihu.com/p/2036468655031047390" target="_blank" rel="noopener">
+          2026年5月跨境税务新政全解析：欧盟VAT收紧、美国销售税97%覆盖、东南亚代扣代缴落地
+        </a>
+        <p class="card-summary">2026年全球税务监管进入全面收紧阶段：欧盟远程销售阈值统一调整至1万欧元/年；美国销售税征管覆盖率提升至97%；东南亚六国落地电商平台代扣代缴政策。2025年因税务不合规被处罚的跨境卖家数量同比上涨42%，平均罚单达12.7万元。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>多站点运营卖家须完成欧洲VAT OSS申报升级和美国销售税nexus全面核查，建议聘请专业财税顾问进行一次性合规审计。</div>
+      </div>
+
+      <div class="news-card card-red">
+        <div class="card-top">
+          <span class="tag tag-red">出口退税</span>
+          <span class="tag tag-teal">政策利好</span>
+          <span class="card-date">2026-05-11</span>
+        </div>
+        <span class="card-source">来源：信盈洋 / 新营养</span>
+        <a class="card-title" href="https://www.xinyingyang.com/content-34-29752-1.html" target="_blank" rel="noopener">
+          9810海外仓新政落地：出口退税流程优化，合规卖家可享更快退税周期
+        </a>
+        <p class="card-summary">根据国家税务总局2026年第5号公告及9810海外仓新政，跨境电商出口退税程序进一步优化，完成备案的合规企业退税周期可缩短至15-30个工作日。同时B2B退税扩围10地试点，为中小型跨境企业提供更多退税渠道和金额空间。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>合规卖家应尽快完成9810模式备案，充分利用出口退税政策红利，直接改善现金流和利润率。</div>
+      </div>
+
+      <div class="news-card card-red">
+        <div class="card-top">
+          <span class="tag tag-red">知识产权</span>
+          <span class="tag tag-red">TRO</span>
+          <span class="card-date">2026-05-17</span>
+        </div>
+        <span class="card-source">来源：搜狐科技周报</span>
+        <a class="card-title" href="https://www.sohu.com/a/1024047221_121824247" target="_blank" rel="noopener">
+          SHEIN诉Temu版权案伦敦高院推进，美国TRO侵权案进入高发期
+        </a>
+        <p class="card-summary">本周（5月11-17日）知识产权领域诉讼密集：SHEIN诉Temu版权案在伦敦高等法院取得重要进展；美国针对跨境平台卖家的TRO（临时禁令）案件进入高发期，主要涉及商标、版权和外观设计专利侵权。中国卖家成为被告频次显著上升。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>卖家需主动开展知识产权自查，避免使用未授权图片和仿制设计，同时建议为重点产品提前申请商标注册（USPTO）。</div>
+      </div>
+
+      <div class="news-card card-red">
+        <div class="card-top">
+          <span class="tag tag-red">多站点合规</span>
+          <span class="tag tag-orange">亚马逊</span>
+          <span class="card-date">2026-04-27</span>
+        </div>
+        <span class="card-source">来源：搜狐电商</span>
+        <a class="card-title" href="https://www.sohu.com/a/1015130709_121752088" target="_blank" rel="noopener">
+          亚马逊南非站新规4月27日起实施：出口前验证+合格证书强制要求，9月全面生效
+        </a>
+        <p class="card-summary">亚马逊南非站实施出口前验证（Pre-Export Verification）和强制合格证书（CoC）要求，检测认证由南非标准局（SABS）负责。现有6个月过渡期，2026年9月20日正式全面实施。此前已上架商品需在过渡期内补充认证材料，否则将被下架。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>开拓南非站的卖家需尽快启动SABS认证流程，认证周期通常需3-6个月，需在6月前启动方能赶上9月截止期。</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: 产业链与行业趋势 ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon icon-teal">📊</div>
+      <span class="section-title title-teal">产业链与行业趋势</span>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="card-grid">
+
+      <div class="news-card card-teal">
+        <div class="card-top">
+          <span class="tag tag-teal">行业盛会</span>
+          <span class="tag tag-teal">厦门</span>
+          <span class="card-date">2026-05-28</span>
+        </div>
+        <span class="card-source">来源：厦门日报</span>
+        <a class="card-title" href="https://dzb.sunnews.cn/html/2026-05/28/content_839429.htm" target="_blank" rel="noopener">
+          第六届中国跨境电商交易博览会6月8日厦门开幕，1500+展位、千家供应商齐聚
+        </a>
+        <p class="card-summary">第六届中跨展将于2026年6月8-10日在厦门国际会展中心举办，主题"跨境互联 货通全球"，展览面积超5万平方米，设置1500余个国际标准展位，汇聚30多个优质产业带、近千家源头工厂、30多家全球主流跨境电商平台和上百家生态服务商。展会获UFI权威认证。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>机会窗口——建议跨境卖家安排参展考察，重点对接供应链资源与新兴市场渠道服务商，提前锁定旺季货源。</div>
+      </div>
+
+      <div class="news-card card-teal">
+        <div class="card-top">
+          <span class="tag tag-purple">AI工具</span>
+          <span class="tag tag-teal">全链路</span>
+          <span class="card-date">2026-04-16</span>
+        </div>
+        <span class="card-source">来源：头条号</span>
+        <a class="card-title" href="https://www.toutiao.com/article/7629296849706435123/" target="_blank" rel="noopener">
+          AI全面融入跨境电商全链路：从选品、Listing到广告投放，效率革命已至
+        </a>
+        <p class="card-summary">2026年AI已深度融入跨境电商每一环节：AI辅助选品（市场预测、竞品分析）、AI生成Listing（标题、Bullet Point、A+内容）、AI智能广告（自动竞价、人群定向）、AI客服（多语言即时响应）。行业调研显示，绝大多数头部运营团队已完成AI工具集成，系统化应用AI的企业利润率领先同行15-30%。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>中小卖家需尽快建立AI工具工作流，重点优先在Listing优化和广告管理两个环节切入，ROI最高。</div>
+      </div>
+
+      <div class="news-card card-teal">
+        <div class="card-top">
+          <span class="tag tag-teal">平台格局</span>
+          <span class="tag tag-teal">2026年</span>
+          <span class="card-date">2026-03-21</span>
+        </div>
+        <span class="card-source">来源：DK跨境</span>
+        <a class="card-title" href="https://www.dk8899.com/2026-5-dk-tiktok-shop-temu-shein/" target="_blank" rel="noopener">
+          2026跨境五大趋势：TikTok社交电商爆发、Temu性价比内卷、品牌化成新出路
+        </a>
+        <p class="card-summary">2026年跨境电商五大关键趋势：①TikTok Shop短视频与直播驱动爆发；②Temu与SHEIN极致性价比模式遭遇流量瓶颈；③亚马逊精细化运营壁垒加深；④独立站+社交媒体品牌打法崛起；⑤东南亚、中东、拉美等新兴市场快速扩张。卖家需明确自身平台定位。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>单一平台依赖风险加大，多平台布局（亚马逊+TikTok Shop+独立站）成为抵御平台风险的核心策略。</div>
+      </div>
+
+      <div class="news-card card-teal">
+        <div class="card-top">
+          <span class="tag tag-teal">B2B出海</span>
+          <span class="tag tag-purple">AI赋能</span>
+          <span class="card-date">2026-05-28</span>
+        </div>
+        <span class="card-source">来源：微信公众号</span>
+        <a class="card-title" href="https://mp.weixin.qq.com/s?__biz=MzAwNDE1MDU0OQ==&mid=2651472633&idx=2&sn=b232d8da21ab40f1ea269acfd1c3edbd" target="_blank" rel="noopener">
+          2026东莞跨境电商B2B出海趋势论坛今日举办，亚马逊企业购+AI全链路获客成焦点
+        </a>
+        <p class="card-summary">2026东莞跨境电商B2B出海趋势与AI效能论坛于今日（5月28日）在东莞松山湖举办，聚焦亚马逊企业购（Business）、中国制造网等B2B平台官方流量政策，以及AI驱动外贸全链路优化——从获客、询盘、报价到成交的一键提效解决方案。非洲等新兴蓝海市场多渠道破局方案同台展示。</p>
+        <div class="card-impact"><span class="impact-label">影响：</span>B端（亚马逊企业购）卖家增长潜力被持续看好，建议同时开通Business账号，承接批量采购流量，客单价显著高于C端。</div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>📰 数据来源：搜狐财经 · 百家号 · cifnews · 雨果跨境 · 亚马逊全球开店 · 厦门日报 · 知乎 · 头条号</p>
+  <p style="margin-top:6px;">🔄 更新时间：2026-05-28 10:00 (北京时间) &nbsp;|&nbsp; 🤖 由 WorkBuddy Jeff 自动生成</p>
+  <p style="margin-top:6px;">
+    <a href="https://jasonnnchen.github.io/cross-border-daily/" target="_blank" rel="noopener">🌐 在线访问</a>
+    &nbsp;·&nbsp; 仅供参考，请结合实际运营情况判断决策
+  </p>
 </footer>
 
 </body>
